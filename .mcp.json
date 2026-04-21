@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "ragflow": {
+      "url": "http://localhost:9382/mcp"
+    }
+  }
+}
