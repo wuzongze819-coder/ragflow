@@ -169,6 +169,9 @@ async def add_llm():
     if factory not in [f.name for f in get_allowed_llm_factories()]:
         return get_data_error_result(message=f"LLM factory {factory} is not allowed")
 
+    if factory == "OpenAI-API-Compatible" and not req.get("api_base"):
+        return get_data_error_result(message="api_base is required for OpenAI-API-Compatible factory")
+
     def apikey_json(keys):
         nonlocal req
         return json.dumps({k: req.get(k, "") for k in keys})
